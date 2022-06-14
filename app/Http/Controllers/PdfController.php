@@ -16,7 +16,6 @@ class PdfController extends Controller
 //            $pdf->setOption($key, $value);
 //        }
 
-        return $pdf->pdf();
         return response()->make($pdf->pdf(), 200, [
             'Content-Type' => 'application/pdf',
         ]);
