@@ -10,14 +10,6 @@ class PdfController extends Controller
     {
         $url    = request('url');
         $pdf    = Browsershot::url($url);
-        $params = request()->except('url');
-
-//        foreach ($params as $key => $value) {
-//            $pdf->setOption($key, $value);
-//        }
-
-        return response()->make($pdf->pdf(), 200, [
-            'Content-Type' => 'application/pdf',
-        ]);
+        return $pdf->pdf();
     }
 }
