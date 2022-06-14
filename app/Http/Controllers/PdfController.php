@@ -12,10 +12,11 @@ class PdfController extends Controller
         $pdf    = Browsershot::url($url);
         $params = request()->except('url');
 
-        foreach ($params as $key => $value) {
-            $pdf->setOption($key, $value);
-        }
+//        foreach ($params as $key => $value) {
+//            $pdf->setOption($key, $value);
+//        }
 
+        return $pdf->pdf();
         return response()->make($pdf->pdf(), 200, [
             'Content-Type' => 'application/pdf',
         ]);
